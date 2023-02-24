@@ -122,14 +122,17 @@ function getPrevMonth(month) {
 }
 
 next.addEventListener('click', function() {
-    // console.log(year, month, 'current')
-    draw(body, getNextYear(year, month), getNextMonth(month));
-    console.log(getNextYear(year, month), getNextMonth(month));
+    body.innerHTML = '';
+    year = getNextYear(year, month);
+    month = getNextMonth(month);
+    draw(body, year, month);
+    info.textContent = months[month] + ' ' + year;
 })
 
 prev.addEventListener('click', function() {
-    arr = ''
-    // console.log(year, month, 'current')
-    draw(body, getPrevYear(year, month), getPrevMonth(month));
-    console.log(getPrevYear(year, month), getPrevMonth(month));
+    body.innerHTML = '';
+    year = getPrevYear(year, month);
+    month = getPrevMonth(month);
+    draw(body, year, month);
+    info.textContent = months[month] + ' ' + year;
 });
